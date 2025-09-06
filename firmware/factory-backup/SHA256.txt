@@ -1,0 +1,3 @@
+SHA256 hash of nozzle_nat_4MB.bin:
+e06534d82370adc4a183fd7d5a457e63f2538c105210331f04d305fdc15f5ed1
+CertUtil: -hashfile command completed successfully.

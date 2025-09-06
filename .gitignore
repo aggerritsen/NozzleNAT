@@ -1,0 +1,22 @@
+# PlatformIO
+.pio/
+.cpio/
+cmake-build-*/
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+# Build artifacts
+*.bin
+*.elf
+*.map
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Secrets
+private.ini
+private*.ini
+*.private.ini
