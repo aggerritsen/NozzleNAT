@@ -83,8 +83,8 @@ board = esp32dev
 build_flags =
   -DDEFAULT_AP_SSID=\"NozzleNAT\"
   -DDEFAULT_AP_PASS=\"\"           ; empty = OPEN AP
-  -DDEFAULT_STA_SSID=\"MARIJA\"
-  -DDEFAULT_STA_PASS=\"cicero14\"
+  -DDEFAULT_STA_SSID=\"NozzleCAM\"
+  -DDEFAULT_STA_PASS=\"\"
   -DAPPLY_DEFAULTS_EVERY_BOOT=1      ; let compile-time defaults override NVS each boot
 ```
 
@@ -181,8 +181,8 @@ HTTPD: MAX_REQ_HDR_LEN=2048, MAX_URI_LEN=1024
 LWIP: IP_FORWARD=1  IPV4_NAPT=1
 Defaults applied each boot: YES (compile-time)
 AP:  SSID="ESP32_NAT_Router"  auth=OPEN  ch=6  ip=192.168.4.1/24
-STA: SSID="MARIJA"  pass_len=8  static_ip=NO
-Build defaults: AP_SSID="NozzleNAT"  AP_pass_len=0  STA_SSID="MARIJA"
+STA: SSID="NozzleCAM"  pass_len=8  static_ip=NO
+Build defaults: AP_SSID="NozzleNAT"  AP_pass_len=0  STA_SSID="NozzleCAM"
 ====================================================
 ```
 
