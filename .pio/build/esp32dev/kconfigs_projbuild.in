@@ -1,6 +1,0 @@
-source "C:/Users/agger/.platformio/packages/framework-espidf@src-b6465284554c190b6435cd38366abea9/components/bootloader/Kconfig.projbuild"
-source "C:/Users/agger/.platformio/packages/framework-espidf@src-b6465284554c190b6435cd38366abea9/components/esp_app_format/Kconfig.projbuild"
-source "C:/Users/agger/.platformio/packages/framework-espidf@src-b6465284554c190b6435cd38366abea9/components/esp_rom/Kconfig.projbuild"
-source "C:/Users/agger/.platformio/packages/framework-espidf@src-b6465284554c190b6435cd38366abea9/components/esptool_py/Kconfig.projbuild"
-source "C:/Users/agger/.platformio/packages/framework-espidf@src-b6465284554c190b6435cd38366abea9/components/partition_table/Kconfig.projbuild"
-source "C:/Users/agger/Documents/PlatformIO/Projects/TTGO-T-Journal-ESP32-NAT/main/Kconfig.projbuild"
