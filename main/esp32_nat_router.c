@@ -53,7 +53,7 @@
 
 
 #ifndef DEFAULT_AP_SSID
-#define DEFAULT_AP_SSID     "NozzleNAT"
+#define DEFAULT_AP_SSID     "NozzleBOX"
 #endif
 #ifndef DEFAULT_AP_PASS
 #define DEFAULT_AP_PASS     ""   // 8–63 chars
