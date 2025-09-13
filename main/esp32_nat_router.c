@@ -1,5 +1,5 @@
 /* Console example esp32_nat_router.c
-   Build for T-SIM7070G
+   Build for T-JOURNAL
 
    This example code is in the Public Domain (or CC0 licensed, at your option.)
 
@@ -16,10 +16,8 @@
 #include "esp_console.h"
 #include "esp_vfs_dev.h"
 #include "driver/uart.h"
-#if CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG
 #include "esp_vfs_usb_serial_jtag.h"
 #include "driver/usb_serial_jtag.h"
-#endif
 #include "linenoise/linenoise.h"
 #include "argtable3/argtable3.h"
 #include "esp_vfs_fat.h"
@@ -56,7 +54,7 @@
 
 
 #ifndef DEFAULT_AP_SSID
-#define DEFAULT_AP_SSID     "NozzleBOX"
+#define DEFAULT_AP_SSID     "NozzleNAT"
 #endif
 #ifndef DEFAULT_AP_PASS
 #define DEFAULT_AP_PASS     ""   // 8–63 chars
@@ -65,7 +63,7 @@
 #define DEFAULT_STA_SSID    ""   // optional
 #endif
 #ifndef DEFAULT_STA_PASS
-#define DEFAULT_STA_PASS    "NozzleCAM"   // optional
+#define DEFAULT_STA_PASS    ""   // optional
 #endif
 #ifndef DEFAULT_ENT_USER
 #define DEFAULT_ENT_USER    ""   // for WPA2-Enterprise (optional)
@@ -137,43 +135,6 @@ static const char* auth_to_str(wifi_auth_mode_t a) {
 
 #include "nvs.h"
 #include "nvs_flash.h"
-
-static void seed_config_from_defaults(void) {
-    nvs_handle_t nvh;
-    if (nvs_open("esp32_nat", NVS_READWRITE, &nvh) != ESP_OK) return;
-
-    char buf[65]; size_t len;
-
-    // AP SSID
-    len = sizeof(buf); 
-    if (nvs_get_str(nvh, "ap_ssid", buf, &len) != ESP_OK || buf[0] == '\0') {
-        nvs_set_str(nvh, "ap_ssid", DEFAULT_AP_SSID);
-    }
-    // AP PASS
-    len = sizeof(buf);
-    if (nvs_get_str(nvh, "ap_passwd", buf, &len) != ESP_OK) {
-        nvs_set_str(nvh, "ap_passwd", DEFAULT_AP_PASS);
-    }
-    // AP IP
-    len = sizeof(buf);
-    if (nvs_get_str(nvh, "ap_ip", buf, &len) != ESP_OK || buf[0] == '\0') {
-        nvs_set_str(nvh, "ap_ip", DEFAULT_AP_IP);
-    }
-    // STA SSID
-    len = sizeof(buf);
-    if (nvs_get_str(nvh, "ssid", buf, &len) != ESP_OK) {
-        nvs_set_str(nvh, "ssid", DEFAULT_STA_SSID);
-    }
-    // STA PASS
-    len = sizeof(buf);
-    if (nvs_get_str(nvh, "passwd", buf, &len) != ESP_OK) {
-        nvs_set_str(nvh, "passwd", DEFAULT_STA_PASS);
-    }
-
-    nvs_commit(nvh);
-    nvs_close(nvh);
-}
-
 
 static void nvs_get_or_set_default(const char *key, char *dst, size_t dstlen, const char *def_val, bool force_set)
 {
@@ -755,7 +716,6 @@ char* param_set_default(const char* def_val) {
 void app_main(void)
 {
     initialize_nvs();
-    seed_config_from_defaults();
 
 #if CONFIG_STORE_HISTORY
     initialize_filesystem();

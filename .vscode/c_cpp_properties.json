@@ -303,7 +303,7 @@
                 "ESP_PLATFORM",
                 "PLATFORMIO=60118",
                 "ARDUINO_ESP32_DEV",
-                "DEFAULT_AP_SSID=\"NozzleBOX\"",
+                "DEFAULT_AP_SSID=\"NozzleNAT\"",
                 "DEFAULT_AP_PASS=\"\"",
                 "DEFAULT_STA_SSID=\"NozzleCAM\"",
                 "DEFAULT_STA_PASS=\"\"",

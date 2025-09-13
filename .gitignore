@@ -8,7 +8,6 @@ cmake-build-*/
 !.vscode/extensions.json
 
 # Build artifacts
-*.bin
 *.elf
 *.map
 
